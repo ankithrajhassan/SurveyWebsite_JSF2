@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+        <title>Survey Form</title>
+        
+        <style type = "text/css"> 	
+         	 body {
+ 	 	background-image: url("images/Background4.jpg");
+    	background-repeat: repeat;}
+    	</style>
+</h:head>
+
+<h:body>
+<h:link value="Click here to goto welcome page" outcome="MainClassPage"></h:link>
+
+<p> Department of Computer Science </p>
+<p> Survey Form </p>
+<p> Please fill out the Survey Form to help us improve our service</p>
+
+<h:form name = "mySurveyForm" method = "post" >
+
+<table width="200">
+
+<tr>
+<td>First Name: </td>
+<td><h:inputText value="#{studentDetails.firstName}"  
+                 required="true" 
+                 requiredMessage="Enter First Name"
+                 validatorMessage="Enter only alphabets and should be less than 15 characters.">
+     <f:validateRegex pattern="[a-zA-Z ]*"/>                       
+     <f:validateLength maximum="15"/></h:inputText></td>
+</tr>
+
+<tr>
+<td>Last Name: </td>
+<td><h:inputText value="#{studentDetails.lastName}"  
+                 required="true" 
+                 requiredMessage="Enter Last Name"
+                 validatorMessage="Enter only alphabets and should be less than 15 characters.">
+     <f:validateRegex pattern="[a-zA-Z ]*"/>                       
+     <f:validateLength maximum="15"/></h:inputText></td>
+</tr>  
+
+<tr>
+<td>Address: </td>
+<td><h:inputText  value="#{studentDetails.address}"  
+                  required="true"  
+                  requiredMessage="Enter Address" 
+                  validatorMessage = "Enter only alphabets and numbers and should be less than or equal to 30 characters.">
+     <f:validateRegex pattern="[a-zA-Z0-9 ]*"/>
+     <f:validateLength maximum="30"/></h:inputText></td>
+</tr>
+
+<tr>
+<td>City: </td>
+<td><h:inputText  value="#{studentDetails.city}" 
+                  required="true" 
+                  requiredMessage="Enter the City" 
+                  validatorMessage = "Enter only alphabets and numbers and should be less than or equal to 30 characters.">
+     <f:validateRegex pattern="[a-zA-Z0-9 ]*"/>
+     <f:validateLength maximum="30"/></h:inputText></td>
+</tr>
+
+<tr>
+<td>State: </td>
+<td><h:inputText  value="#{studentDetails.state}" 
+                  required="true" 
+                  requiredMessage="Enter the State" 
+                  validatorMessage = "Enter only alphabets and numbers and should be less than or equal to 30 characters.">
+     <f:validateRegex pattern="[a-zA-Z0-9 ]*"/>
+     <f:validateLength maximum="30"/></h:inputText></td>
+</tr>
+
+<tr>
+<td>Zip Code: </td>
+<td><h:inputText  value="#{studentDetails.zip}" 
+                  required="true" 
+                  requiredMessage="Enter the Zip Code" 
+                  validatorMessage = "Zip code must be number and exactly 5 digits">
+		 <f:validateRegex pattern="[0-9]*"/>
+         <f:validateLength minimum="5" maximum="5"/></h:inputText></td>
+</tr>
+
+<tr>
+<td>Telephone: </td>
+<td><h:inputText  value="#{studentDetails.telephone}" 
+				  required="true" 
+				  requiredMessage="Enter telephone number (###)-###-####" 
+				  validatorMessage="Telephone must be in given pattern : (###)-###-####" >
+		<f:validateRegex pattern="\(\d{3}\)\-\d{3}-\d{4}" />
+		</h:inputText></td>
+</tr>
+
+
+<tr>
+<td>E-mail: </td>
+<td><h:inputText  value ="#{studentDetails.email}" 
+ 				  required="true" 
+ 				  requiredMessage="Enter E-mail (abc@abc.com)" 
+ 				  validatorMessage="Enter in the proper format : abc@abc.com" >
+    <f:validateRegex pattern="[a-zA-Z0-9._]*@[a-zA-Z0-9.]*.[a-zA-Z0-9]*" /></h:inputText></td>
+</tr>
+
+<tr>
+<td>Date: </td>
+<td><h:inputText  value ="#{studentDetails.date}"  
+				  required="true"
+				  requiredMessage="Enter date of survey (mm-dd-yyyy)">
+             <f:convertDateTime pattern="mm-dd-yyyy" /></h:inputText></td>
+</tr>
+
+</table>
+
+<p>How did you hear about the George Mason University?</p>
+
+<p>
+<h:selectOneRadio value="#{studentDetails.knowAbout}" 
+ 				  required="true" 
+ 				  requiredMessage="You have to tell us how did you come to know about George Mason University?">
+   <f:selectItem itemValue="friends" itemLabel="Friends" />
+   <f:selectItem itemValue="television" itemLabel="Television" />  
+   <f:selectItem itemValue="internet" itemLabel="Internet" /> 
+   <f:selectItem itemValue="other" itemLabel="Other" />       
+</h:selectOneRadio>
+</p>
+
+<p>How likely are you to recommend George Mason University to others?</p>
+
+<h:selectOneMenu value="#{studentDetails.likelihood}"
+                  required="true" 
+                  requiredMessage= "Select one option">
+   <f:selectItem itemValue="Very Likely" itemLabel="Very Likely" />
+   <f:selectItem itemValue="Likely" itemLabel="Likely" />
+   <f:selectItem itemValue="Unlikely" itemLabel="Unlikely" />                     
+</h:selectOneMenu>
+      
+<p>Please provide additional comments if any: </p>
+<p> <h:inputText value="#{studentDetails.comments}" required="true" requiredMessage="Please enter your comments"/></p>
+
+<p><label>Raffle (10 numbers separated by comma):
+<h:inputText  value="#{studentDetails.raffle}" 
+              validatorMessage="Enter raffle data" 
+              required="true" 
+              requiredMessage="You should enter raffle data: 10 numbers separated by comma">
+              </h:inputText></label></p>
+
+<h:commandButton action="#{studentDetails.showData}"  value="Submit"/>
+<br></br> <br></br>
+
+<h:link value="Click here to view List Of Surveys" outcome="display"></h:link>
+
+
+</h:form>
+</h:body>
+</html>
+

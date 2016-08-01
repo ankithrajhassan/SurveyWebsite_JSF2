@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html">
+
+ <h:head>
+    <title> Welcome </title>
+    <style type = "text/css">
+
+    li { font-family: "Times New Roman", Times, serif;
+ 		font-size: 20px;
+   }
+
+    .welcome { font-family: "Monotype Corsiva","Times New Roman", Times, serif;
+ 	   font-size: 90px;
+ 	   text-shadow: -6px 5px 6px grey;
+ 	   font-weight: bold;
+ 	   font-style: italic;  
+ 	   color: #101010}
+
+ 	.raj { font-family: "Monotype Corsiva","Times New Roman", Times, serif;
+ 	   font-size: 30px;
+ 	   text-shadow: -4px 3px 7px grey;
+ 	   font-weight: bold;
+ 	   font-style: italic;
+ 	   position:fixed;
+ 	   right:8px;
+ 	   top:4px;
+ 	   color: #101010}
+
+ 	 h:body {
+ 	 	background-image: url("images/Background4.jpg");
+    	background-repeat: repeat;}
+
+ 	</style>
+
+  
+
+</h:head>
+
+<h:body>
+<p align = "center"><span class = "welcome">Welcome</span> </p>
+  	<span class = "raj">Raj</span>
+
+  	<br></br><br></br><br></br>
+<h:form>
+  
+<p> 
+<ul>Please Click here to take a survey : 
+<!--  <h:link value="Survey Form" outcome="SurveyForm" ></h:link> -->
+<h:commandLink action="SurveyForm" value="Survey Form"/> </ul>
+<ul>Please Click here to view all the surveys : 
+<h:commandLink action="#{studentDetails.populate}" value="List Of Surveys" /></ul></p>
+
+</h:form>
+</h:body>
+
+</html>

@@ -1,0 +1,40 @@
+body { background-color: #f1f1f1;
+     }
+
+table {
+  	margin-left: auto;
+  	margin-right: auto;
+	}
+
+p { font-family: "Times New Roman", Times, serif;
+ 	font-size: 17px;
+   }
+
+li {font-size: 17px;}
+
+strong {font-size: 18px;}
+
+h1 { font-size: 42px;
+	 text-shadow: -6px 4px 6px grey;
+	}
+
+h2 { font-size: 29px;}
+
+h3 { font-size: 22px;}
+
+th { font-size: 19px;}
+
+.red { color: #ff0000;}
+
+.raj { font-family: "Monotype Corsiva","Times New Roman", Times, serif;
+ 	   font-size: 30px;
+ 	   text-shadow: -4px 3px 7px grey;
+ 	   font-weight: bold;
+ 	   font-style: italic;
+ 	   text-decoration: none;
+ 	   position:fixed;
+ 	   right:6px;
+ 	   top:4px;
+ 	   color: #101010;
+
+ 	}
